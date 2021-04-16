@@ -2,9 +2,6 @@ package com.kovalevskyi.academy.codingbootcamp.week1.day2;
 
 import java.util.function.Function;
 
-/**
- * askdyashdayhsdasodu.
- */
 public class List<T> {
 
     private T item;
@@ -12,30 +9,20 @@ public class List<T> {
     private List<T> previous;
     private static List first;
     private static List last;
-//    private int size = 0;
 
-    /**
-     * askdyashdayhsdasodu.
-     */
     private List(List<T> prev, List<T> next, T value) {
         this.previous = prev;
         this.next = next;
         this.item = value;
     }
 
-    /**
-     * askdyashdayhsdasodu.
-     */
-    public static <T> List<T> createOne(T value) {
+   public static <T> List<T> createOne(T value) {
         List<T> newList = new List<>(null, null, value);
         first = newList;
         last = newList;
         return newList;
     }
 
-    /**
-     * askdyashdayhsdasodu.
-     */
     public static <T> List<T> addToEnd(List<T> list, T newValue) {
         List<T> lastList = last;
         List<T> newList = new List<>(lastList, null, newValue);
@@ -48,9 +35,7 @@ public class List<T> {
         return newList;
     }
 
-    /**
-     * askdyashdayhsdasodu.
-     */
+    
     public static <T> List<T> addToStart(List<T> list, T newValue) {
         List<T> firstList = first;
         List<T> newList = new List<>(firstList, null, newValue);
@@ -63,9 +48,7 @@ public class List<T> {
         return newList;
     }
 
-    /**
-     * askdyashdayhsdasodu.
-     */
+    
     public static <T> boolean contains(List<T> list, T value) {
         List<T> currentList = first;
         while (currentList != last.next) {
@@ -78,9 +61,6 @@ public class List<T> {
         return false;
     }
 
-    /**
-     * askdyashdayhsdasodu.
-     */
     public static <T, R> List<R> map(List<T> list, Function<T, R> mapFunction) {
         List<T> currentList = first;
         List<R> newList = createOne(mapFunction.apply(currentList.item));
@@ -93,9 +73,6 @@ public class List<T> {
         return newList;
     }
 
-    /**
-     * askdyashdayhsdasodu.
-     */
     public int length() {
         int size = 0;
         List<T> currentList = first;
@@ -104,13 +81,5 @@ public class List<T> {
         }
         return size;
     }
-
-
-
-
-
-
-
-
 
 }
